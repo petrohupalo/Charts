@@ -57,7 +57,7 @@ class PieChartViewController: DemoBaseViewController {
         chartView.entryLabelFont = .systemFont(ofSize: 12, weight: .light)
         
         sliderX.value = 4
-        sliderY.value = 100
+        sliderY.value = 20
         self.slidersValueChanged(nil)
         
         chartView.animate(xAxisDuration: 1.4, easingOption: .easeOutBack)
@@ -82,15 +82,21 @@ class PieChartViewController: DemoBaseViewController {
         
         let set = PieChartDataSet(entries: entries, label: "Election Results")
         set.drawIconsEnabled = false
-        set.sliceSpace = 2
+        set.sliceSpace = 40
+        
+        set.sliceStrokeWidth = 15
+        set.sliceLineDashPattern = [0, 0]
+        set.sliceFillColor = UIColor.clear.cgColor
+        set.sliceStrokeLineJoinStyle = .round
         
         
-        set.colors = ChartColorTemplates.vordiplom()
-            + ChartColorTemplates.joyful()
-            + ChartColorTemplates.colorful()
-            + ChartColorTemplates.liberty()
-            + ChartColorTemplates.pastel()
-            + [UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)]
+        set.colors = [UIColor(red: 104 / 255, green: 104 / 255, blue: 104 / 255, alpha: 1)]
+        + [UIColor(red: 246 / 255, green: 209 / 255, blue: 75 / 255, alpha: 1)]
+        + [UIColor(red: 254 / 255, green: 240 / 255, blue: 203 / 255, alpha: 1)]
+        + [UIColor(red: 141 / 255, green: 196 / 255, blue: 194 / 255, alpha: 1)]
+        + [UIColor(red: 75 / 255, green: 123 / 255, blue: 120 / 255, alpha: 1)]
+        + [UIColor(red: 249 / 255, green: 176 / 255, blue: 71 / 255, alpha: 1)]
+        + [UIColor(red: 170 / 255, green: 105 / 255, blue: 120 / 255, alpha: 1)]
         
         let data = PieChartData(dataSet: set)
         
@@ -105,6 +111,7 @@ class PieChartViewController: DemoBaseViewController {
         data.setValueTextColor(.black)
         
         chartView.data = data
+        chartView.sliceTextDrawingThreshold = 340
         chartView.highlightValues(nil)
     }
     

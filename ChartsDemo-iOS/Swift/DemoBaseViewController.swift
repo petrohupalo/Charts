@@ -240,14 +240,14 @@ class DemoBaseViewController: UIViewController, ChartViewDelegate {
     }
     
     func setup(pieChartView chartView: PieChartView) {
-        chartView.usePercentValuesEnabled = true
+        chartView.usePercentValuesEnabled = false
         chartView.drawSlicesUnderHoleEnabled = false
-        chartView.holeRadiusPercent = 0.58
-        chartView.transparentCircleRadiusPercent = 0.61
+        chartView.holeRadiusPercent = 0.8
+        chartView.transparentCircleRadiusPercent = 0.8
         chartView.chartDescription.enabled = false
-        chartView.setExtraOffsets(left: 5, top: 10, right: 5, bottom: 5)
+        chartView.setExtraOffsets(left: 0, top: 0, right: 0, bottom: 0)
         
-        chartView.drawCenterTextEnabled = true
+        chartView.drawCenterTextEnabled = false
         
         let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paragraphStyle.lineBreakMode = .byTruncatingTail
@@ -263,19 +263,11 @@ class DemoBaseViewController: UIViewController, ChartViewDelegate {
         chartView.centerAttributedText = centerText;
         
         chartView.drawHoleEnabled = true
+        chartView.holeColor = UIColor.clear
         chartView.rotationAngle = 0
-        chartView.rotationEnabled = true
-        chartView.highlightPerTapEnabled = true
-        
-        let l = chartView.legend
-        l.horizontalAlignment = .right
-        l.verticalAlignment = .top
-        l.orientation = .vertical
-        l.drawInside = false
-        l.xEntrySpace = 7
-        l.yEntrySpace = 0
-        l.yOffset = 0
-//        chartView.legend = l
+        chartView.rotationEnabled = false
+        chartView.highlightPerTapEnabled = false
+        chartView.legend.enabled = false
     }
     
     func setup(radarChartView chartView: RadarChartView) {
