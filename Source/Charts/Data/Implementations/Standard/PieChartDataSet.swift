@@ -11,6 +11,8 @@
 
 import Foundation
 import CoreGraphics
+import QuartzCore
+import UIKit
 
 open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
 {
